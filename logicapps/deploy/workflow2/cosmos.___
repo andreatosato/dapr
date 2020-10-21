@@ -1,0 +1,15 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: statestore
+spec:
+  type: state.azure.cosmosdb
+  metadata:
+  - name: url
+    value: https://daprstatetosato.documents.azure.com:443
+  - name: masterKey
+    value: eVWH8FDpwCOYKOK7gq4QUcxnHEiwR0Bgoe59vGry7AXqjcQu7Cf5JPtlSvGWeoUO7ZByA7M7Hnnh8G8eov45Vg==
+  - name: database
+    value: state
+  - name: collection
+    value: dapr

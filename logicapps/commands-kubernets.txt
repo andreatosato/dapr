@@ -1,0 +1,7 @@
+dapr init --kubernetes
+kubectl create configmap workflows --from-file ./samples/workflow2.json
+
+kubectl create secret generic dapr-workflows --from-literal=accountName=daprstoragetosato --from-literal=accountKey=yK7W2fkO+Tlg9Bdbd4Oms3IEuoLH/Grv6C3nwoZ6fR+b21cPcIwgQbEmSHpBN2L9Wsop0c0f9hh8Cqsl2v5Vlw==
+kubectl apply -f .\deploy\workflow2
+kubectl port-forward deploy/dapr-workflows-host 3500:3500
+curl http://localhost:3500/v1.0/invoke/workflows/method/workflow2
